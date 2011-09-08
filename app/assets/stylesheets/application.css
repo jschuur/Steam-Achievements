@@ -17,6 +17,7 @@
 
 body {
   font-family: "TF2 Secondary";
+  background-color: #e0e0d8;
 }
 
 h1 {
@@ -26,6 +27,10 @@ h1 {
 
 #flash_alert {
   margin: 10px 0px 10px 0px;
+}
+
+img.sparkline {
+  border-bottom: 1px solid gray;
 }
 
 .achievement {
