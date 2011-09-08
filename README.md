@@ -17,6 +17,9 @@ Todo
 
 * Show completion percentage (bar?)
 * Tweet new achievements (associate Twitter account)
+* Add player avatar to results page
+* Add achievement images
+* Lookup Steam ID from Steam username?
 * Compare achievements to a friend
 * Sidebar blog widget (with caching)
 * Class based drop down (for TF2 only?)
