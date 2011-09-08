@@ -1,0 +1,5 @@
+<h1>Steam achievements lookup</h1>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, raw(msg), :id => "flash_#{name}" if msg.is_a?(String) %>
+<% end -%>
+<%= render 'shared/form' %>

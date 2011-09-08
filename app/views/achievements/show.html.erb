@@ -1,0 +1,17 @@
+<h1><%= STEAMGAMES[params[:game]] %> achievements for <%= params[:user] %></h1>
+<%= render 'shared/form' %>
+
+<% if @unlocked %>
+  <p><div id="tally"><%= @unlocked.length %> of <%= @total_achievements %> unlocked 
+    <% if @history.sum.nonzero? %>
+      (<%= sparkline_tag @history, :type => 'bar', :step => 4, :height => 12 %>)
+    <% end %>
+  </div></p>
+  <% @unlocked.each do |achievement| %>
+    <div class="achievement">
+      <div class="name"><%= achievement.name %></div>
+      <div class="description"><%= achievement.description %></div>
+      <div class="time"><%= achievement.timestamp.strftime("%D") if achievement.timestamp %></div>
+    </div>
+  <% end %>
+<% end %>

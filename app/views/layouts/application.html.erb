@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SteamRails</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <link rel="apple-touch-icon" href="<%= root_path %>apple-touch-icon.png")
+  <meta name="viewport" content="width = device-width">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<div id="footer">
+  <p>Built by <a href="http://twitter.com/joostschuur">Joost Schuur</a>.</p>
+</div>
+</body>
+</html>
