@@ -24,6 +24,10 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+  
+  task :restore_db_config do
+    run "cp #{shared_path}/database.yml #{release_path}/config/database.yml"
+  end
 end
 
 namespace :bundler do
@@ -53,3 +57,4 @@ end
 
 after "deploy:rollback:revision", "bundler:install"
 after "deploy:update_code", "bundler:bundle_new_release"
+after "deploy:update_code","deploy:restore_db_config"
