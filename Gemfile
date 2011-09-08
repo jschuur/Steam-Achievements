@@ -10,6 +10,7 @@ gem 'steam-condenser'
 gem 'sparklines'
 gem 'rmagick'
 
+# JavaScript runtime for Rails 3.1 asset compilation
 group :production do
   gem 'therubyracer'
 end
@@ -28,7 +29,7 @@ gem 'jquery-rails'
 # gem 'unicorn' 
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
