@@ -5,10 +5,11 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'mysql2'
 gem 'steam-condenser'
 gem 'sparklines'
 gem 'rmagick'
+gem 'omniauth'
 
 # JavaScript runtime for Rails 3.1 asset compilation
 group :production do

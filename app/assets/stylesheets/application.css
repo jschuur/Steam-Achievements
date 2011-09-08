@@ -20,6 +20,14 @@ body {
   background-color: #e0e0d8;
 }
 
+#header {
+  text-align: right;
+  font-size: 10px;
+}
+#header a {
+  text-decoration: none;
+}
+
 h1 {
   font-family: "TF2 Secondary";
   color: red;
