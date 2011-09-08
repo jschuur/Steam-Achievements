@@ -76,11 +76,17 @@ GEM
     net-ldap (0.2.2)
 =======
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     multi_xml (0.2.2)
     multipart-post (1.1.3)
     mysql2 (0.3.7)
     net-ldap (0.2.2)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 >>>>>>> master
     net-scp (1.0.4)
@@ -164,6 +170,11 @@ GEM
       mime-types (>= 1.16)
 =======
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+>>>>>>> Stashed changes
 =======
     rest-client (1.6.7)
       mime-types (>= 1.16)
