@@ -28,6 +28,10 @@ namespace :deploy do
   task :restore_db_config do
     run "cp #{shared_path}/database.yml #{release_path}/config/database.yml"
   end
+
+  task :asset_precompile
+    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+  end
 end
 
 namespace :bundler do
@@ -57,4 +61,6 @@ end
 
 after "deploy:rollback:revision", "bundler:install"
 after "deploy:update_code", "bundler:bundle_new_release"
-after "deploy:update_code","deploy:restore_db_config"
+after "deploy:update_code", "deploy:restore_db_config"
+after "deploy:update_code", "deploy:asset_precompile"
+
