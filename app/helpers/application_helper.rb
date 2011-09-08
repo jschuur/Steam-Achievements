@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
+
 	def sparkline_tag(results=[], options={})		
     attributes = %(class="#{options[:class] || 'sparkline'}" alt="Sparkline Graph" )
     attributes << %(title="#{options[:title]}" ) if options[:title]
