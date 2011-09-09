@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     puts auth.to_yaml
     if user = User.find_by_uid(auth["uid"])
       session[:user_id] = user.id
-      redirect_to root_url, :notice => "Signed in!"
+      redirect_to root_url
     else 
       user = User.create_with_omniauth(auth)
       session[:user_id] = user.id
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :notice => "Signed out!"
+    redirect_to root_url
   end
   
   def error

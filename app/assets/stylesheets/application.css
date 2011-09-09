@@ -16,22 +16,31 @@
 }
 
 body {
+  margin: 0px;
   font-family: "TF2 Secondary";
   background-color: #e0e0d8;
 }
 
+#main {
+  padding: 0px 10px 0px 10px;
+}
+
 #header {
-  width: 640px;  
+  background-color: #556DCF;
+  font-family: Helvetica;
+  padding: 7px;
   text-align: right;
-  font-size: 11pt;
+  font-size: 9pt;
+  color: white;
 }
 #header a {
   text-decoration: none;
+  color: white;
 }
 
 h1 {
   font-family: "TF2 Secondary";
-  color: red;
+  color: #FA3434;
 }
 
 #flash_alert {
@@ -66,8 +75,10 @@ img.sparkline {
 }
 
 #footer {
-  width: 640px;  
+  font-family: Helvetica;
+  font-size: 8pt;
   text-align: right;
+  padding-right: 20px;
 }
 #footer a {
   text-decoration: none;
@@ -75,16 +86,16 @@ img.sparkline {
 
 @media (max-width: 640px) {
   h1 {
-    font-size: 16pt;
+    font-size: 18pt;
   }
   
   #header {
-    width: 95%;
-    font-size: 9pt;
+    width: 100%;
+    font-size: 6pt;
   }
 
   .achievement {
-    width: 95%;
+    width: 100%;
     margin: 5px auto;
     padding: 5px;
   }
