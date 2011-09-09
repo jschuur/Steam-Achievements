@@ -5,13 +5,13 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <link rel="apple-touch-icon" href="<%= root_path %>apple-touch-icon.png")
-  <meta name="viewport" content="width = device-width">
+  <meta name="viewport" content="width=device-width">
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="header">
     <% if current_user %>
-      Welcome <%= current_user.name %>!
+      <b><%= current_user.name %></b>: <%= link_to "Settings", settings_path -%> | 
       <%= link_to "Sign Out", signout_path %>
     <% else %>
       <%= link_to "Sign in with Twitter", root_path + "auth/twitter" %>

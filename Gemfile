@@ -11,6 +11,9 @@ gem 'sparklines'
 gem 'rmagick'
 gem 'omniauth'
 
+# For debugging
+gem 'pry', :group => :development 
+
 # JavaScript runtime for Rails 3.1 asset compilation
 group :production do
   gem 'therubyracer'

@@ -15,6 +15,8 @@ Access to Steam Community data via [steam-condenser gem](https://github.com/kora
 Todo
 ----
 
+* Format flash messages better
+* No flash on successful signup?
 * Show completion percentage (bar?)
 * Tweet new achievements (associate Twitter account)
 * Add player avatar to results page

@@ -1,6 +1,8 @@
 class AchievementsController < ApplicationController
   def show
     if STEAMGAMES[params[:game]]
+      session[:last_steamid] = params[:user]
+
       id = SteamId.new(params[:user])
       stats = id.game_stats(params[:game])
 

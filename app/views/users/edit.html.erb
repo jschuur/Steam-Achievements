@@ -1,0 +1,12 @@
+<% if session[:new_user] %>
+  <h3>Complete new user signup for <%= current_user.name %></h3>
+<% else %>
+  <h3>User settings for <%= current_user.name %></h3>
+<% end %>
+
+<%= form_for @user do |f| -%>
+  <%= f.label :steamid, "Steam ID" %>
+  <%= f.text_field :steamid %>
+  
+  <%= f.submit "Save", :disable_with => 'Saveing...' %>
+<% end -%>
