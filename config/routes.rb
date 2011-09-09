@@ -1,5 +1,5 @@
 SteamRails::Application.routes.draw do
-  root :to => 'main#index'
+  root :to => 'achievements#index'
   
   resources :users
   
@@ -11,4 +11,5 @@ SteamRails::Application.routes.draw do
 
   # Catch all for user/game achievement URL
   match '/a/:user/:game' => 'achievements#show', :as => :achievements
+  match '/a' => redirect("/")
 end

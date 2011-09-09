@@ -1,7 +1,7 @@
 Steam Achievements
 ==================
 
-A Rails app for browsing unlocked game achievements on the [Steam](http:/steamgames.com) multiplayer platform. See [sample output](http://by.joostschuur.com/steam/jschuur/tf2).
+A Rails app for browsing unlocked game achievements on the [Steam](http:/steamgames.com) multiplayer platform. See [sample output](http://by.joostschuur.com/steam/a/jschuur/tf2).
 
 Developed by [Joost Schuur](http://joostschuur.com).
 

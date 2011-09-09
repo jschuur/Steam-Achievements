@@ -21,7 +21,7 @@
   <%= yield %>
 
   <div id="footer">
-    <p>Built by <a href="http://twitter.com/joostschuur">Joost Schuur</a><%= "(dev)" if Rails.env.development? %>.</p>
+    <p>Built by <a href="http://twitter.com/joostschuur">Joost Schuur</a><%= " (dev)" if Rails.env.development? %>.</p>
   </div>
 </body>
 </html>

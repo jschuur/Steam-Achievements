@@ -1,4 +1,4 @@
-<%= form_tag :controller => "main", :action => "index" do %>
+<%= form_tag :controller => "achievements", :action => "index" do %>
   <%= text_field_tag :user, current_user.try(:steamid) || params[:user], :placeholder => "Steam user name" %>
   <%= select_tag :game, options_for_select(STEAMGAMES.to_a.map {|g| g.reverse}) %>
   <%= submit_tag "Search" %>
