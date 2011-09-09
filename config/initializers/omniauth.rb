@@ -1,7 +1,8 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
+  # Get your credentials from http://dev.twitter.com
   if Rails.env.development?
-    provider :twitter, 'JuQ70FtkVYtUMl5WBu0yA', 'z17YdXIPJabg30hbE5ToYRYmmYJ3fJ1KbiBrpimi37g'
+    provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
   else
-    provider :twitter, 'TQRFmiqjznB9ATMByg', 'IOFoBk0RmpIE6i9YGLa8FZfetlrZlBPjbV2CLAwnM'
+    provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
   end
 end

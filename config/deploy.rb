@@ -25,8 +25,9 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   
-  task :restore_db_config do
+  task :restore_confidential_files do
     run "cp #{shared_path}/database.yml #{release_path}/config/database.yml"
+    run "cp #{shared_path}/omniauth.rb #{release_path}/config/initializers/omniauth.rb"
   end
 
   task :asset_precompile do
@@ -61,6 +62,6 @@ end
 
 after "deploy:rollback:revision", "bundler:install"
 after "deploy:update_code", "bundler:bundle_new_release"
-after "deploy:update_code", "deploy:restore_db_config"
+after "deploy:update_code", "deploy:restore_confidential_files"
 after "deploy:update_code", "deploy:asset_precompile"
 
