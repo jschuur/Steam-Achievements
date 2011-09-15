@@ -11,14 +11,11 @@ class AchievementsController < ApplicationController
           if request.xhr?
             session[:last_steamid] = params[:user]
     
-            achievements = Achievements.new(params[:user], params[:game])
-            @unlocked = achievements.unlocked
-            @history = achievements.sparkline_history
-            @total_achievements = achievements.all.length
+            @achievements = Achievements.new(params[:user], params[:game])
     
-            results = render_to_string :partial => 'results'
-            render :text => { :results => results, 
-                              :achievements_path => achievements_path, :title => "#{APP_CONFIG['games'][params[:game]]} achievements for #{params[:user]}",
+            render :text => { :results => render_to_string(:partial => 'results'),
+                              :achievements_path => achievements_path,
+                              :title => "#{APP_CONFIG['games'][params[:game]]} achievements for #{params[:user]}",
                               :game => params[:game], :user => params[:user] }.to_json
           else
             render 'show'

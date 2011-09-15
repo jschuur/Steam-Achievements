@@ -1,19 +1,17 @@
 class Achievements
-  attr_reader :unlocked
+  attr_reader :unlocked, :sparkline_history
   
   def initialize(user, game)
     @achievements = load_game_achievements(user, game)
     @unlocked = @achievements.find_all { |a| a.unlocked? }.sort {|a,b| -1 * (a.timestamp.to_i <=> b.timestamp.to_i) }
+
+    # 4 week history of the number of achievements unlocked
+    achievements_per_day = @unlocked.map(&:timestamp).compact.reduce(Hash.new(0)) { |hash, timestamp| hash[timestamp.strftime("%D")] += 1; hash }
+    @sparkline_history = (Date.today-28 .. Date.today).map { |d| achievements_per_day[d.strftime("%D")] }
   end
   
   def all
     @achievements
-  end
-  
-  # 4 week history of the number of achievements unlocked
-  def sparkline_history
-    achievements_per_day = @unlocked.map(&:timestamp).compact.reduce(Hash.new(0)) { |hash, timestamp| hash[timestamp.strftime("%D")] += 1; hash }
-    (Date.today-28 .. Date.today).map { |d| achievements_per_day[d.strftime("%D")] }
   end
 
   private  
