@@ -5,7 +5,7 @@ class AchievementsController < ApplicationController
   end
 
   def show
-    if STEAMGAMES[params[:game]]
+    if APP_CONFIG['games'][params[:game]]
       respond_with do |format|
         format.html do
           if request.xhr?
@@ -18,7 +18,7 @@ class AchievementsController < ApplicationController
     
             results = render_to_string :partial => 'results'
             render :text => { :results => results, 
-                              :achievements_path => achievements_path, :title => "#{STEAMGAMES[params[:game]]} achievements for #{params[:user]}",
+                              :achievements_path => achievements_path, :title => "#{APP_CONFIG['games'][params[:game]]} achievements for #{params[:user]}",
                               :game => params[:game], :user => params[:user] }.to_json
           else
             render 'show'

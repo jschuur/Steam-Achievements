@@ -1,5 +1,11 @@
 development: &defaults
   achievement_cache_time: 3600    # Seconds to cache achievement data on a per user/game basis
-  
+  games:
+    tf2: Team Fortress 2
+    l4d: Left 4 Dead
+    portal2: Portal 2
+    portal: Portal
+
 production:
+  achievement_cache_time: 600
   <<: *defaults

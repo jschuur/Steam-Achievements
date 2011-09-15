@@ -4,12 +4,9 @@ class Achievements
   def initialize(user, game)
     @achievements = load_game_achievements(user, game)
     @unlocked = @achievements.find_all { |a| a.unlocked? }.sort {|a,b| -1 * (a.timestamp.to_i <=> b.timestamp.to_i) }
-    
-    return true
   end
   
   def all
-    puts "all"
     @achievements
   end
   
