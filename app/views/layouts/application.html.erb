@@ -3,7 +3,7 @@
 <head>
   <title><%= content_for?(:title) ? yield(:title) : "Steam achievements lookup" %></title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", params[:controller] %>
   <link rel="apple-touch-icon" href="<%= root_path %>apple-touch-icon.png")
   <meta name="viewport" content="width=device-width">
   <%= csrf_meta_tags %>
@@ -19,6 +19,11 @@
   </div>
 
   <div id="main">
+    <h1>Steam Achievements</h1>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, raw(msg), :id => "flash_#{name}" if msg.is_a?(String) %>
+    <% end -%>
+    
     <%= yield %>
   </div>
 

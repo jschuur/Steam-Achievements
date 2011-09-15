@@ -1,0 +1,16 @@
+<% if @unlocked %>
+  <p><div id="tally"><%= @unlocked.length %> of <%= @total_achievements %> unlocked 
+    <% if @history.sum.nonzero? %>
+      (<%= sparkline_tag @history, :type => 'bar', :title => '4 week history', :step => 4, :height => 12, :background_color => '#e0e0d8', :below_color => 'black' %>)
+    <% end %>
+  </div></p>
+  <% @unlocked.each do |achievement| %>
+    <div class="achievement">
+      <div class="name"><%= achievement.name %></div>
+      <div class="description"><%= achievement.description %></div>
+      <div class="time"><%= achievement.timestamp.strftime("%D") if achievement.timestamp %></div>
+    </div>
+  <% end %>
+<% else %>
+  <p>No unlocked achievements for this game.</p>
+<% end %>

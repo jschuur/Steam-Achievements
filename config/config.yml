@@ -1,0 +1,5 @@
+development: &defaults
+  achievement_cache_time: 3600    # Seconds to cache achievement data on a per user/game basis
+  
+production:
+  <<: *defaults

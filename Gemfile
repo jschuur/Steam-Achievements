@@ -10,6 +10,7 @@ gem 'steam-condenser'
 gem 'sparklines'
 gem 'rmagick'
 gem 'omniauth'
+gem 'redis'
 
 # For debugging
 gem 'pry', :group => :development 

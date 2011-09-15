@@ -15,9 +15,11 @@ Access to Steam Community data via [steam-condenser gem](https://github.com/kora
 Todo
 ----
 
-* Format flash messages better
-* No flash on successful signup?
+* Format flash messages better (as drop downs and triggered from layout)
+* Permalinks for lookup results
+* AJAX loading when hitting direct URL
 * Show completion percentage (bar?)
+* OpenID Steam connect instead of Twitter (then connect to Twitter from settings)
 * Tweet new achievements (associate Twitter account)
 * Add player avatar to results page
 * Add achievement images
