@@ -12,6 +12,12 @@ Steam Community Information
 
 Access to Steam Community data via [steam-condenser gem](https://github.com/koraktor/steam-condenser/).
 
+Global achievement unlock percentages for all achievements per game (uses achievement API name)
+http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml
+
+Last time played (among other things)
+http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=XXXXXXXXXXXXXXXXXXXXXXX&steamids=76561197960435530
+
 Todo
 ----
 
