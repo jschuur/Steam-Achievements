@@ -4,13 +4,15 @@
       (<%= sparkline_tag @achievements.sparkline_history, :type => 'bar', :title => '4 week history', :step => 4, :height => 12, :background_color => '#fff', :below_color => 'black' %>)
     <% end %>
   </div>
-  <% @achievements.unlocked.each do |achievement| %>
-    <div class="achievement">
-      <div class="name"><%= achievement.name %></div>
-      <div class="description"><%= achievement.description %></div>
-      <div class="time"><%= achievement.timestamp.strftime("%D") if achievement.timestamp %></div>
-    </div>
-  <% end %>
+  <div id="achievements">
+    <% @achievements.unlocked.each do |achievement| %>
+      <div class="achievement <%= cycle('achievement1', 'achievement2')%>">
+        <%= content_tag(:div, achievement.name, :class => 'name') %>
+        <%= content_tag(:div, achievement.description, :class => 'description') %>
+        <%= content_tag(:div, achievement.timestamp.strftime("%D"), :class => 'time') if achievement.timestamp %>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <p>No unlocked achievements for this game.</p>
 <% end %>

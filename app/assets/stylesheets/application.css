@@ -84,6 +84,10 @@ body {
   color: #989898;
 }
 
+#tally {
+  margin-bottom: 15px;
+}
+
 #results {
   margin-top: 15px;
 }
@@ -105,27 +109,41 @@ img.sparkline {
 }
 
 .achievement {
-  width: 500px;
-  margin: 10px;
-  padding: 15px 15px 0px 15px;
+  width: 560px;
+  margin: 0px;
+  padding: 0px;
+  border-top: 1px solid gray;
+}
+
+.achievement1 {
   background: #ccc;
+}
+
+.achievement2 {
+  background: #eee;
+}
+
+#achievements .achievement:last-child {
+  border-bottom: 1px solid gray;
 }
 
 .name {
   font-family: "TF2 Build";
   font-size: 20pt;
   line-height: 110%;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 .description {
   font-family: "TF2 Secondary";
   font-size: 12pt;
-  margin: 10px 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 .time {
   font-family: "TF2 Build";
   text-align: right;
   font-size: 9pt;
-  paddint: 0px;
+  padding-right: 10px;
 }
