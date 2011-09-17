@@ -11,6 +11,7 @@ gem 'sparklines'
 gem 'rmagick'
 gem 'omniauth'
 gem 'redis'
+gem 'coffeebeans'
 
 # For debugging
 gem 'pry', :group => :development 

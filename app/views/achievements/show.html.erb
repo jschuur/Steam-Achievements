@@ -1,10 +1,8 @@
 <%= render 'form' %>
 
 <% if params[:user] && params[:game] %>
-<script>
-$(function() {
-  $("#spinner").show();
-  load_achievements('<%= achievements_path %>');
-})
-</script>
+  <%= coffee_script_tag do %>
+    $ ->
+      load_achievements '<%= achievements_path %>'
+  <% end %>
 <% end %>
