@@ -10,7 +10,6 @@ root.load_achievements = (url) ->
   $.get(url).success((data) ->
     $("#spinner").hide()
     response = jQuery.parseJSON(data)
-    console.log response
     if response.error
       $("#errors").html response.error
       $("#errors").show()

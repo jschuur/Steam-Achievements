@@ -5,6 +5,7 @@ development: &defaults
     l4d: Left 4 Dead
     portal2: Portal 2
     portal: Portal
+    alienswarm: Alien Swarm
 
 production:
   achievement_cache_time: 600

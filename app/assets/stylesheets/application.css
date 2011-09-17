@@ -47,6 +47,13 @@ h1 {
   margin: 10px 0px 10px 0px;
 }
 
+.hint {
+  font-family: Helvetica;
+  font-size: 8pt;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+
 #results {
   margin-top: 15px;
 }

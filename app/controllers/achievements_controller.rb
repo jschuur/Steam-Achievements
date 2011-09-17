@@ -15,10 +15,8 @@ class AchievementsController < ApplicationController
             response = { :achievements_path => achievements_path,
                          :game => params[:game], :user => params[:user] }
 
-            if @achievements.invalid_user?
-              response.merge!({ :error => 'Invalid Steam ID (must currently use profile URL nickname)' })
-            elsif @achievements.invalid_game?
-              response.merge!({ :error => 'Invalid Steam game.' })
+            if @achievements.error
+              response.merge! :error => "Error: #{@achievements.error}"
             else              
               response.merge!({ :results => render_to_string(:partial => 'results'),
                                  :title => "#{APP_CONFIG['games'][params[:game]]} achievements for #{params[:user]}"})            
