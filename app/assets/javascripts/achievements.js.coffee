@@ -15,6 +15,7 @@ root.load_achievements = (url) ->
       $("#errors").show()
     else
       $("#results").html response.results
+      $(".page-header h1").html response.title
       $("#results").show()
       $("#lookup #user").val response.user
       $("#lookup #game").val response.game
@@ -36,6 +37,7 @@ $ ->
       $("#errors").show()  
     else
       $("#results").html response.results
+      $(".page-header h1").html response.title
       $("#results").show()
     history.pushState null, response.title, response.achievements_path
   

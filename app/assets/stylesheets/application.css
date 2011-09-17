@@ -5,6 +5,56 @@
  *= require_self
  * require_tree . 
 */
+/* Override some defaults */
+html, body {
+  background-color: #eee;
+}
+body {
+  padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+}
+.container > footer p {
+  text-align: center; /* center align it with the container */
+}
+.container {
+  width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
+}
+
+/* The white background content wrapper */
+.content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+/* Page header tweaks */
+.page-header {
+  background-color: #f5f5f5;
+  padding: 20px 20px 10px;
+  margin: -20px -20px 20px;
+}
+
+/* Styles you shouldn't keep as they are for displaying this base example only */
+.content .span10,
+.content .span4 {
+  min-height: 500px;
+}
+/* Give a quick and non-cross-browser friendly divider */
+.content .span4 {
+  margin-left: 0;
+  padding-left: 19px;
+  border-left: 1px solid #eee;
+}
+
+.topbar .btn {
+  border: 0;
+}
+
 @font-face {
     font-family: "TF2 Build";
     src: url(tf2_build.ttf);
@@ -15,46 +65,23 @@
   src: url(tf2_secondary.ttf);
 }
 
-body {
-  margin: 0px;
+.brand, .nav {
+  font-family: "TF2 Build";
+}
+
+.page-header {
   font-family: "TF2 Secondary";
-  background-color: #e0e0d8;
-}
-
-#main {
-  padding: 0px 10px 0px 10px;
-}
-
-#header {
-  background-color: #556DCF;
-  font-family: Helvetica;
-  padding: 7px;
-  text-align: right;
-  font-size: 9pt;
-  color: white;
-}
-#header a {
-  text-decoration: none;
-  color: white;
-}
-
-h1 {
-  font-family: "TF2 Secondary";
-  color: #FA3434;
-}
-
-#flash_alert {
-  margin: 10px 0px 10px 0px;
 }
 
 #hint {
-  font-family: Helvetica;
-  font-size: 8pt;
   margin-top: 15px;
-  margin-left: 40px;
-  padding: 5px;
-  background: #FF7575;
-  width: 600px;
+  margin-left: 10px;
+  line-height: 140%;
+  width: 500px;
+}
+
+#hint a:visited, a:link {
+  color: #989898;
 }
 
 #results {
@@ -68,7 +95,7 @@ h1 {
 
 #spinner {
   display: none;
-  width: 600px;
+  width: 500px;
   text-align: center;
   padding-top: 30px;
 }
@@ -78,73 +105,27 @@ img.sparkline {
 }
 
 .achievement {
-  width: 600px;
-  margin: 10px 40px;
-  padding: 5px;
+  width: 500px;
+  margin: 10px;
+  padding: 15px 15px 0px 15px;
   background: #ccc;
 }
 
 .name {
   font-family: "TF2 Build";
   font-size: 20pt;
+  line-height: 110%;
 }
 
 .description {
   font-family: "TF2 Secondary";
-  margin: 5px 20px;
+  font-size: 12pt;
+  margin: 10px 20px;
 }
 
 .time {
   font-family: "TF2 Build";
   text-align: right;
   font-size: 9pt;
-}
-
-#footer {
-  font-family: Helvetica;
-  font-size: 8pt;
-  text-align: right;
-  padding-right: 20px;
-}
-#footer a {
-  text-decoration: none;
-}
-
-@media (max-width: 640px) {
-  h1 {
-    font-size: 18pt;
-  }
-  
-  #header {
-    width: 100%;
-    font-size: 6pt;
-  }
-
-  #spinner {
-    width: 100%;
-  }
-
-  #hint {
-    width: 95%;
-    margin: 5px auto;
-  }
-
-  .achievement {
-    width: 100%;
-    margin: 5px auto;
-    padding: 5px;
-  }
-  
-  .name {
-    font-size: 12pt;
-  }
-  
-  .time {
-    font-size: 8pt;
-  }
- 
-  #footer { 
-    font-size: 9pt;
-    width: 95%;
-  }  
+  paddint: 0px;
 }
