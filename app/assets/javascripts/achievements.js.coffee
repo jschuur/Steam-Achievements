@@ -6,26 +6,37 @@ root = exports ? this
 
 root.load_achievements = (url) ->
   $("#spinner").show()
+  $("#errors").hide()
   $.get(url).success((data) ->
     $("#spinner").hide()
     response = jQuery.parseJSON(data)
-    $("#results").html response.results
-    $("#results").show()
-    $("#lookup #user").val response.user
-    $("#lookup #game").val response.game
+    console.log response
+    if response.error
+      $("#errors").html response.error
+      $("#errors").show()
+    else
+      $("#results").html response.results
+      $("#results").show()
+      $("#lookup #user").val response.user
+      $("#lookup #game").val response.game
   ).error ->
     alert "Error loading achievements from Steam"
 
 $ ->
   $("#lookup").bind("ajax:before", (evt, xhr, settings) ->
     $("#results").hide()
+    $("#errors").hide()
     $("#spinner").show()
   ).bind("ajax:complete", (xhr, status) ->
     $("#spinner").hide()
   ).bind "ajax:success", (evt, data, status, xhr) ->
     response = jQuery.parseJSON(xhr.responseText)
-    $("#results").html response.results
-    $("#results").show()
+    if response.error
+      $("#errors").html response.error
+      $("#errors").show()  
+    else
+      $("#results").html response.results
+      $("#results").show()
     history.pushState null, response.title, response.achievements_path
   
   $(window).bind "popstate", ->

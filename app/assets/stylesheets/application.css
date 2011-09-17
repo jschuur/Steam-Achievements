@@ -47,6 +47,15 @@ h1 {
   margin: 10px 0px 10px 0px;
 }
 
+#results {
+  margin-top: 15px;
+}
+
+#errors {
+  color: red;
+  margin-top: 15px;
+}
+
 #spinner {
   display: none;
   width: 600px;
