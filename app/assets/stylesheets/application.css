@@ -125,7 +125,8 @@ img.sparkline {
   }
 
   #hint {
-    width: 100%;
+    width: 95%;
+    margin: 5px auto;
   }
 
   .achievement {
