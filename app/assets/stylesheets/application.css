@@ -86,6 +86,8 @@ body {
 
 #tally {
   margin-bottom: 15px;
+  font-family: "TF2 Secondary";
+  font-size: 13pt;
 }
 
 #results {
