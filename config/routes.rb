@@ -8,6 +8,7 @@ SteamRails::Application.routes.draw do
   match "/auth/failure" => "sessions#error"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/settings" => "users#edit", :as => :settings
+  match "/about" => "application#about", :as => :about
 
   # Catch all for user/game achievement URL
   match '/achievements/search' => 'achievements#search', :as => :search

@@ -26,8 +26,8 @@
         <div class="container">
           <span class="brand"><%= APP_NAME %></span>
           <ul class="nav">
-            <li class="active"><%= link_to 'Home', root_url %></li>
-            <li><a href="#">About</a></li>
+            <%= nav_link 'Home', root_path %>
+            <%= nav_link 'About', about_path %>
           </ul>
         </div>
       </div>

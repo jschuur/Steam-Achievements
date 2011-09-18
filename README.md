@@ -22,14 +22,12 @@ Todo
 ----
 
 * Format flash messages better (as drop downs and triggered from layout)
-* Permalinks for lookup results
-* AJAX loading when hitting direct URL
 * Show completion percentage (bar?)
 * OpenID Steam connect instead of Twitter (then connect to Twitter from settings)
 * Tweet new achievements (associate Twitter account)
 * Add player avatar to results page
 * Add achievement images
-* Lookup Steam ID from Steam username?
+* Find out which of your friends has the most achievements
 * Compare achievements to a friend
 * Sidebar blog widget (with caching)
 * Class based drop down (for TF2 only?)
