@@ -150,6 +150,10 @@ img.sparkline {
   padding-right: 10px;
 }
 
+#friendslist {
+  display: none;
+}
+
 #friends {
   font-size: 8pt;
 }

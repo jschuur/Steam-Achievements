@@ -52,8 +52,11 @@
               <%= link_to "Sign in with Twitter", root_path + "auth/twitter" %>
             <% end %>
             </p>
-
-            <%= yield :sidebar %>
+              <% if content_for?(:sidebar) %>
+                <%= yield :sidebar %>
+              <% elsif File.exists?("#{Rails.root}/app/views/#{params[:controller]}/_sidebar.html.erb") %>
+    						<%= render "#{params[:controller]}/sidebar", :locals => { :params => params } %>
+              <% end %>
           </div>
         </div>
       </div>

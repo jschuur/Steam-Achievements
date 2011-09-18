@@ -1,0 +1,12 @@
+<div id="friendslist">
+  <h3>Friends</h3>
+
+  <div id="friends">Loading...</div>
+</div>
+<% if params[:user] && params[:game] %>
+  <%= coffee_script_tag do %>
+    $ ->
+      $("#friendslist").show()
+      $.getScript('<%= friends_path(:id => params[:user]) %>.js')
+  <% end   %>
+<% end %>

@@ -1,15 +1,8 @@
-<% content_for :sidebar do %>
-<h3>Friends</h3>
-
-<div id="friends">Loading...</div>
-<% end %>
-
 <%= render 'form' %>
 
 <% if params[:user] && params[:game] %>
   <%= coffee_script_tag do %>
     $ ->
       load_achievements '<%= achievements_path %>'
-      $.getScript('<%= friends_path(:id => params[:user]) %>.js')
   <% end %>
 <% end %>

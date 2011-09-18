@@ -1,4 +1,5 @@
 class AchievementsController < ApplicationController
+  before_filter :formhint, :only => [:index, :show]
   respond_to :html
 
   def index
@@ -34,5 +35,15 @@ class AchievementsController < ApplicationController
   
   def search
     redirect_to achievements_path(:user => params[:user], :game => params[:game])
+  end
+
+  protected
+
+  def formhint
+    if session[:hint] == 'display'
+      session[:hint] = 'display'
+    else
+      session[:hint] = 'hide'
+    end
   end
 end

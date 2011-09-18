@@ -27,13 +27,15 @@ $ ->
     $("#results").hide()
     $("#errors").hide()
     $("#spinner").show()
+    $("#friendslist").show()
+    $.getScript(location.href.substr(0, location.href.indexOf('/a/')) + '/friends/' + $("#lookup input[name=user]").val() + '.js')
   ).bind("ajax:complete", (xhr, status) ->
     $("#spinner").hide()
   ).bind "ajax:success", (evt, data, status, xhr) ->
     response = jQuery.parseJSON(xhr.responseText)
     if response.error
       $("#errors").html response.error
-      $("#errors").show()  
+      $("#errors").show()
     else
       $("#results").html response.results
       $(".page-header h1").html response.title
