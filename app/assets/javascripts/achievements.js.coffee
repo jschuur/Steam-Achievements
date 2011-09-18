@@ -28,6 +28,8 @@ $ ->
     $("#errors").hide()
     $("#spinner").show()
     $("#friendslist").show()
+    $("#sidebar h3:first").html('Friends');
+    $("#friends").html('Loading...');
     $.getScript(location.href.substr(0, location.href.indexOf('/a/')) + '/friends/' + $("#lookup input[name=user]").val() + '.js')
   ).bind("ajax:complete", (xhr, status) ->
     $("#spinner").hide()
