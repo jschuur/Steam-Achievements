@@ -19,7 +19,7 @@ class AchievementsController < ApplicationController
               response.merge! :error => "Error: #{@achievements.error}"
             else              
               response.merge!({ :results => render_to_string(:partial => 'results'),
-                                 :title => "#{APP_CONFIG['games'][params[:game]]} achievements for #{params[:user]}"})            
+                                 :title => "#{APP_CONFIG['games'][params[:game]]} achievements for #{@achievements.id.nickname}"})            
             end
             render :text => response.to_json
           else

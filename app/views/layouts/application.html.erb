@@ -43,7 +43,7 @@
           <div class="span10">
             <%= yield %>
           </div>
-          <div class="span4">
+          <div id="sidebar" class="span4">
             <p>
             <% if current_user %>
               <b><%= current_user.name %></b>: <%= link_to "Settings", settings_path -%> | 

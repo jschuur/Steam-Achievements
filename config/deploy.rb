@@ -28,6 +28,7 @@ namespace :deploy do
   task :restore_confidential_files do
     run "cp #{shared_path}/database.yml #{release_path}/config/database.yml"
     run "cp #{shared_path}/omniauth.rb #{release_path}/config/initializers/omniauth.rb"
+    run "cp #{shared_path}/steam_api.rb #{release_path}/config/initializers/steam_api.rb"
   end
 
   task :asset_precompile do

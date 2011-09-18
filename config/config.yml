@@ -1,5 +1,6 @@
 development: &defaults
   achievement_cache_time: 3600    # Seconds to cache achievement data on a per user/game basis
+  user_cache_time: 604800
   games:
     tf2: Team Fortress 2
     l4d: Left 4 Dead

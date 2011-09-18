@@ -1,0 +1,4 @@
+<% friends.each do |friend| %>
+<li> <%= link_to(friend['personaname'], achievements_path(:user => friend['custom_url'] || friend['steamid'], :game => game)) -%>
+<%= " (#{friend['realname']})" if friend['realname'] && friend['realname'].length > 0 -%>
+<% end %>

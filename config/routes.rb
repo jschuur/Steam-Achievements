@@ -12,4 +12,5 @@ SteamRails::Application.routes.draw do
   # Catch all for user/game achievement URL
   match '/achievements/search' => 'achievements#search', :as => :search
   match '/a/:user/:game' => 'achievements#show', :as => :achievements
+  match '/friends/:id' => 'friends#show', :as => :friends
 end

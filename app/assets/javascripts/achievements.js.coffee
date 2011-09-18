@@ -24,7 +24,6 @@ root.load_achievements = (url) ->
 
 $ ->
   $("#lookup").bind("ajax:before", (evt, xhr, settings) ->
-    $("#hint").hide()
     $("#results").hide()
     $("#errors").hide()
     $("#spinner").show()

@@ -149,3 +149,11 @@ img.sparkline {
   font-size: 9pt;
   padding-right: 10px;
 }
+
+#friends {
+  font-size: 8pt;
+}
+
+span.private {
+  font-color: red;
+}
