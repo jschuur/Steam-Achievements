@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908112652) do
+ActiveRecord::Schema.define(:version => 20110919122541) do
 
   create_table "users", :force => true do |t|
     t.string   "steam_id64"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20110908112652) do
     t.string   "twitter_secret"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "login_account",           :default => false
   end
 
 end

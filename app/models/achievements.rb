@@ -43,17 +43,7 @@ class Achievements
         end
 
         # Save any profile we did a lookup on for later
-        User.find_or_create_by_steam_id64(id.steam_id64) do |u|
-          u.steam_id64 = id.steam_id64
-          u.steam_real_name = id.real_name
-          u.steam_privacy_state = id.privacy_state
-          u.steam_nickname = id.nickname
-          u.steam_custom_url = id.custom_url
-          u.steam_base_url = id.base_url
-          u.steam_full_avatar_url = id.full_avatar_url
-          u.steam_medium_avatar_url = id.medium_avatar_url
-          u.steam_icon_url = id.icon_url
-        end
+        User.create_with_id(id)
 
         raise "This profile's data is not public." if id.privacy_state != 'public'
 
