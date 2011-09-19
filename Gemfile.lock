@@ -125,7 +125,7 @@ GEM
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
     polyglot (0.3.2)
-    pry (0.9.5)
+    pry (0.9.6)
       coderay (>= 0.9.8)
       method_source (>= 0.6.5)
       ruby_parser (>= 2.0.5)

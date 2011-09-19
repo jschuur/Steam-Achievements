@@ -22,6 +22,13 @@ class SessionsController < ApplicationController
                                          :twitter_token => auth['credentials']['token'],
                                          :twitter_secret => auth['credentials']['secret'] })
         redirect_to settings_path, :flash => { :success => "You've connected your Twitter account to your Steam account here."}
+      else
+        if user = User.find_by_twitter_uid(auth['uid'])
+          session[:user_id] = user.id
+          redirect_to root_url
+        else
+          render 'noaccount'
+        end
       end
     else
       redirect_to root_url, :flash => { :error => "Unknown provider '#{auth["provider"]}'!" }
