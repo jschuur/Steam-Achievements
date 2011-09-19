@@ -12,11 +12,15 @@ Currently
 
 Bugs
 ----
+* steam privacy state not properly set for authenticated users
 
 Next
 ----
+* Helper for 'use id or custom_url; Apply to Settings page link.
 * Split achievement loading into separate load and render functions to DRY form submission and permalink loading
-* Put Steam profile pic in sidebar
+* Put Steam profile pic in sidebar (still, now that it's next to dropdown?)
+* Add Twitter account via settings
+* Checkboxes for 'Tweet new achievements' and 'Get daily summary email'
 * Check for no unlocked achievements
 * Add achievement images
 
@@ -24,7 +28,6 @@ More
 ----
 * Format flash messages better (as drop downs and triggered from layout)
 * Show completion percentage (bar?)
-* OpenID Steam connect instead of Twitter (then connect to Twitter from settings)
 * Tweet new achievements (associate Twitter account)
 * Find out which of your friends has the most achievements
 * Do I have this achievement?, when looking at someone else's list

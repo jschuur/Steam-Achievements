@@ -1,6 +1,6 @@
 <% title "Account Settings for #{current_user.steam_nickname}" %>
 <% if session[:new_user] %>
-<i>Here's where you'd link in your Twitter account and configure other settings. Meanwhile, try a search on your <%= link_to "TF2 achievements", achievements_path(:user => current_user.steam_id64, :game => 'tf2') %> e.g.</i>
+<i>Here's where you'd link in your Twitter account and configure other settings. Meanwhile, try a search on your <%= link_to "TF2 achievements", achievements_path(:user => current_user.steam_custom_url || current_user.steam_id64, :game => 'tf2') %> e.g.</i>
 <% else %>
 TBD
 <% end %>

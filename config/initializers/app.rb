@@ -5,4 +5,4 @@ $redis = Redis.new(:host => 'localhost', :port => 6379)
 APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
 
 #
-APP_NAME = "Steam Thing"
+APP_NAME = "Steamy Data"

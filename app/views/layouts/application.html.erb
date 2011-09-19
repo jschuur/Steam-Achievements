@@ -27,12 +27,23 @@
           <span class="brand"><%= APP_NAME %></span>
           <ul class="nav">
             <%= nav_link 'Home', root_path %>
+            <% if current_user %>
+              <li class="dropdown" data-dropdown="dropdown"><a href="#" class="dropdown-toggle">Achievements</a>
+                <ul class="dropdown-menu">
+                  <% APP_CONFIG['games'].each do |shortgame, game| %>
+                    <li><%= link_to game, achievements_path(:user => current_user.steam_custom_url || current_user.steam_id64, :game => shortgame) %></li>
+                  <% end %>
+                </ul>
+              </li>
+            <% end %>
             <%= nav_link 'About', about_path %>
           </ul>
           <ul class="nav secondary-nav">
             <% if current_user %>
               <li class="dropdown" data-dropdown="dropdown"><img src="<%= current_user.steam_icon_url %>"><%= link_to current_user.steam_nickname, "#", :class => "dropdown-toggle" %>
                 <ul class="dropdown-menu">
+                  <li><a target="_new" href="<%= current_user.steam_base_url%>">Steam Profile</a></li>
+                  <li class="divider"></li>
                   <li><%= link_to "Settings", settings_path %></li>
                   <li><%= link_to "Sign Out", signout_path %></li>
                 </ul>

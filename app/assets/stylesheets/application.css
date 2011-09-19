@@ -170,6 +170,14 @@ img.sparkline {
   font-size: 8pt;
 }
 
+#friendslist a:link {
+  color: red;
+}
+
+#friendslist a:visited {
+  color: gray;
+}
+
 span.private {
   font-color: red;
 }
