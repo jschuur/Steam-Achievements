@@ -1,6 +1,15 @@
 <% title "Account Settings for #{current_user.steam_nickname}" %>
-<% if session[:new_user] %>
-<i>Here's where you'd link in your Twitter account and configure other settings. Meanwhile, try a search on your <%= link_to "TF2 achievements", achievements_path(:user => current_user.steam_custom_url || current_user.steam_id64, :game => 'tf2') %> e.g.</i>
+
+<h3>Twitter</h3>
+<% if current_user.twitter_handle %>
+  <p>You're currently linked to the <%= current_user.twitter_handle %> Twitter account.</p>
+
+  <%= link_to "Disconnect from #{current_user.twitter_handle}", disconnect_twitter_path, :class => "btn danger" %>
 <% else %>
-TBD
+  <p>Link your Steam profile to your Twitter account for faster login and to tweet new achievements.</p>
+
+  <%= link_to "Connect to Twitter", "/auth/twitter", :class => "btn primary" %>
 <% end %>
+
+<h3>Email Preferences</h3>
+<i>TBD</i>

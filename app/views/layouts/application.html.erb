@@ -64,6 +64,10 @@
         </div>
         <div class="row">
           <div class="span10">
+            <% flash.each do |name, msg| %>
+              <%= content_tag :div, msg, :class => "alert-message #{name}" %>
+            <% end %>
+
             <%= yield %>
           </div>
           <div id="sidebar" class="span4">

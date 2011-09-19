@@ -13,6 +13,7 @@ Currently
 Bugs
 ----
 * steam privacy state not properly set for authenticated users
+* Add right padding to main content column
 
 Next
 ----

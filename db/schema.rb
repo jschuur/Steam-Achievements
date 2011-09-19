@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110919122541) do
+ActiveRecord::Schema.define(:version => 20110919135216) do
 
   create_table "users", :force => true do |t|
     t.string   "steam_id64"
@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(:version => 20110919122541) do
     t.string   "steam_medium_avatar_url"
     t.string   "steam_icon_url"
     t.string   "twitter_uid"
-    t.string   "twitter_name"
+    t.string   "twitter_real_name"
     t.string   "twitter_token"
     t.string   "twitter_secret"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "login_account",           :default => false
+    t.string   "twitter_handle"
   end
 
 end
