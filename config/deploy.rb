@@ -1,10 +1,11 @@
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require 'rvm/capistrano'
+require 'capistrano_colors'
 
 set :application, "steam"
 
 set :rvm_ruby_string, 'ruby-1.9.2-p180'
-set (:deploy_to) {"/home/jschuur/apps/#{application}"}
+set (:deploy_to) {"/www/#{application}"}
 
 set :repository,  "git@git.joostschuur.com:steam-achievements.git"
 set :scm, :git

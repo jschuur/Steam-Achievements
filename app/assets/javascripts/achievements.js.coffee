@@ -30,7 +30,7 @@ $ ->
     $("#friendslist").show()
     $("#sidebar h3:first").html('Friends');
     $("#friends").html('Loading...');
-    $.getScript(location.href.substr(0, location.href.indexOf('/a/')) + '/friends/' + $("#lookup input[name=user]").val() + '.js')
+    $.getScript(root_app_uri + '/friends/' + $("#lookup input[name=user]").val() + '.js')
   ).bind("ajax:complete", (xhr, status) ->
     $("#spinner").hide()
   ).bind "ajax:success", (evt, data, status, xhr) ->
