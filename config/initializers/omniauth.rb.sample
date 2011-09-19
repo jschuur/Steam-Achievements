@@ -5,4 +5,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   else
     provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
   end
+  
+  # Key at http://steamcommunity.com/dev/apikey
+  provider :steam, OpenID::Store::Filesystem.new('/tmp'), 'TWITTER_API_KEY'
 end

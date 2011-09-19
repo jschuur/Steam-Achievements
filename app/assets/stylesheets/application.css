@@ -69,6 +69,18 @@ body {
   font-family: "TF2 Build";
 }
 
+.secondary-nav li img {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+}
+
+.secondary-nav a.dropdown-toggle {
+  padding-left: 40px;
+}
+
 .page-header {
   font-family: "TF2 Secondary";
 }

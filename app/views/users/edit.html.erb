@@ -1,12 +1,6 @@
+<% title "Account Settings for #{current_user.steam_nickname}" %>
 <% if session[:new_user] %>
-  <h3>Complete new user signup for <%= current_user.name %></h3>
+<i>Here's where you'd link in your Twitter account and configure other settings. Meanwhile, try a search on your <%= link_to "TF2 achievements", achievements_path(:user => current_user.steam_id64, :game => 'tf2') %> e.g.</i>
 <% else %>
-  <h3>User settings for <%= current_user.name %></h3>
+TBD
 <% end %>
-
-<%= form_for @user do |f| -%>
-  <%= f.label :steamid, "Steam ID" %>
-  <%= f.text_field :steamid %>
-  
-  <%= f.submit "Save", :disable_with => 'Saveing...' %>
-<% end -%>

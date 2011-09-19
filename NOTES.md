@@ -28,6 +28,7 @@ More
 * Tweet new achievements (associate Twitter account)
 * Find out which of your friends has the most achievements
 * Do I have this achievement?, when looking at someone else's list
+* Email summary of new achievements (including friends?)
 * Compare achievements to a friend
 * Icon to indicate if you've unlocked an achievement when you're looking at other people's
 * Sidebar blog widget (with caching)

@@ -5,3 +5,4 @@ tmp/
 .sass-cache/
 config/database.yml
 config/initializers/steam_api.rb
+config/initializers/omniauth.rb

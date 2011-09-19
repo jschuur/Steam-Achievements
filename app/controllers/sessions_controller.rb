@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     puts auth.to_yaml
-    if user = User.find_by_uid(auth["uid"])
+    if user = User.find_by_steam_id64(auth["uid"])
       session[:user_id] = user.id
       redirect_to root_url
     else 

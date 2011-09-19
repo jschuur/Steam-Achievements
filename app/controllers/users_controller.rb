@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   def edit
     @user = current_user
-
-    @user.steamid = session[:last_steamid] if session[:new_user]
   end
   
   def update

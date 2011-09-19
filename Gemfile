@@ -12,6 +12,7 @@ gem 'rmagick'
 gem 'omniauth'
 gem 'redis'
 gem 'coffeebeans'
+gem 'oa-openid'
 
 # For debugging
 gem 'pry', :group => :development 
