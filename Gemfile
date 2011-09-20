@@ -14,9 +14,6 @@ gem 'redis'
 gem 'coffeebeans'
 gem 'oa-openid'
 
-# For debugging
-gem 'pry', :group => :development 
-
 # JavaScript runtime for Rails 3.1 asset compilation
 group :production do
   gem 'therubyracer'

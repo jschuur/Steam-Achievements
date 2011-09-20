@@ -30,8 +30,8 @@
             <% if current_user %>
               <li class="dropdown" data-dropdown="dropdown"><a href="#" class="dropdown-toggle">Achievements</a>
                 <ul class="dropdown-menu">
-                  <% APP_CONFIG['games'].each do |shortgame, game| %>
-                    <li><%= link_to game, achievements_path(:user => current_user.steam_custom_url || current_user.steam_id64, :game => shortgame) %></li>
+                  <% APP_CONFIG['games'].each do |game| %>
+                    <li><%= link_to game['fullname'], achievements_path(:user => current_user.steam_custom_url || current_user.steam_id64, :game => game['shortname']) %></li>
                   <% end %>
                 </ul>
               </li>

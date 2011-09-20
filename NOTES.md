@@ -9,6 +9,7 @@ Currently
 * load friends list from initial root page load search
 * Convert achievement loading to js.erb
 * Reload friend and achievement data via AJAX on friend list click
+* Check for valid game with new APP_CONFIG['games'] format
 
 Bugs
 ----

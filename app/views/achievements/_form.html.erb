@@ -1,6 +1,6 @@
 <%= form_tag({:action => :search}, {:method => :get, :remote => true, :id => "lookup"}) do %>
   <%= text_field_tag :user, current_user.try(:steamid) || params[:user], :placeholder => "Steam user name" %>
-  <%= select_tag :game, options_for_select(APP_CONFIG['games'].to_a.map {|g| g.reverse}, params[:game]) %>
+  <%= select_tag :game, options_for_select(APP_CONFIG['games'].map {|g| [g['fullname'], g['shortname']] }, params[:game]) %>
   <%= submit_tag "Search" %>
   <% unless session[:hint] == 'hide' %>
     <div id="hint" class="alert-message warning" data-alert="alert">

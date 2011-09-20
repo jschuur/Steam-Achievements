@@ -2,11 +2,21 @@ development: &defaults
   achievement_cache_time: 3600    # Seconds to cache achievement data on a per user/game basis
   user_cache_time: 604800
   games:
-    tf2: Team Fortress 2
-    l4d: Left 4 Dead
-    portal2: Portal 2
-    portal: Portal
-    alienswarm: Alien Swarm
+    - shortname: tf2 
+      fullname: Team Fortress 2
+      gameid: 440
+    - shortname: l4d
+      fullname: Left 4 Dead
+      gameid: 550
+    - shortname: portal2
+      fullname: Portal 2
+      gameid: 620
+    - shortname: portal
+      fullname: Portal
+      gameid: 400
+    - shortname: alienswarm
+      fullname: Alien Swarm
+      gameid: 630
 
 production:
   achievement_cache_time: 600
