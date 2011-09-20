@@ -12,8 +12,12 @@ Currently
 
 Bugs
 ----
+* Dropdowns don't load on about page because JS files are included twice
 * steam privacy state not properly set for authenticated users
 * Add right padding to main content column
+* Problem with loading permalink with numeric IDs? http://steam.dev/a/76561197970679651/tf2 Not easily repeatable
+* No loading spinner for sidebar links?
+* Can't go forward after you've gone back
 
 Next
 ----
@@ -37,6 +41,7 @@ More
 * Icon to indicate if you've unlocked an achievement when you're looking at other people's
 * Sidebar blog widget (with caching)
 * Class based drop down (for TF2 only?)
+* Weekly email also tells you what new Steam games your friends have been playing
 
 Research
 --------

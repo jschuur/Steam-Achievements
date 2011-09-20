@@ -6,7 +6,6 @@
 <% if params[:user] && params[:game] %>
   <%= coffee_script_tag do %>
     $ ->
-      $("#friendslist").show()
-      $.getScript('<%= friends_path(:id => params[:user]) %>.js')
-  <% end   %>
+      load_friends '<%= friends_path(:id => params[:user]) %>.js'
+  <% end %>
 <% end %>

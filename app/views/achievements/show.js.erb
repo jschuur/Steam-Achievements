@@ -1,0 +1,9 @@
+$("#spinner").hide();
+<% if @achievements.error %>
+  $("#errors").html('<%= @achievements.error %>');
+<% else %>
+  $("#results").html('<%= escape_javascript(raw render(:partial => 'results')) %>');
+  $(".page-header h1").html('<%= @title %>');
+<% end %>
+
+history.pushState(null, "<%= @title %>", "<%= achievements_path(:user => params[:user], :game => params['game']) %>");
