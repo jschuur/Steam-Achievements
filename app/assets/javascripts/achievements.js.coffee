@@ -1,16 +1,22 @@
 popped = ("state" of window.history)
 initialURL = location.href
+current_game = null
+current_user = null
 
 # So we can create global functions later
 root = exports ? this
 
 root.load_achievements = (user, game) ->
+  current_game = game
   $("#errors").empty()
   $("#results").empty()
   $("#spinner").show()
-  $.getScript('/a/' + user + '/' + game)
+  $("#lookup #user").val user
+  $("#lookup #game").val game
+  $.getScript('/a/' + user + '/' + game + '.js')
     
 root.load_friends = (user) ->
+  current_user = user
   $("#friendslist").show()
   $("#sidebar h3:first").html('Friends')
   $("#friends").html('Loading...')
@@ -21,7 +27,19 @@ $ ->
     $("#errors").empty()
     $("#results").empty()
     $("#spinner").show()
-    load_friends($("#lookup input[name=user]").val())
+    unless $("#lookup input[name=user]").val() == current_user
+      load_friends $("#lookup input[name=user]").val()
+  ).bind("ajax:success", (data) ->
+    current_game = $("#lookup select[name=game]").val()
+    current_user = $("#lookup input[name=user]").val()
+  )
+
+  $(".friendlink").live('click', (e) ->
+    user = $(this).attr('data-user')
+    load_friends user
+    load_achievements user, current_game
+
+    e.preventDefault()
   )
 
   $(window).bind "popstate", ->

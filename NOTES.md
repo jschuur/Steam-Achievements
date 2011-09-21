@@ -2,27 +2,27 @@ Currently
 ---------
 * Even on errors, populate form and results
 * loading spinner not always show when clicking on friend sidebar links (image not yet loaded? try adding text too)
-* CSS color on private profile not working
 * Switch back to pageheader instead of title, so browser history has titles when AJAX loading page headers
 * What happens when there's no friends?
-* Create Rails helper to query SteamId by id or string
 * load friends list from initial root page load search
-* Convert achievement loading to js.erb
-* Reload friend and achievement data via AJAX on friend list click
 * Check for valid game with new APP_CONFIG['games'] format
 
 Bugs
 ----
+* CSS color on private profile not working
 * Dropdowns don't load on about page because JS files are included twice
 * steam privacy state not properly set for authenticated users
 * Add right padding to main content column
 * Problem with loading permalink with numeric IDs? http://steam.dev/a/76561197970679651/tf2 Not easily repeatable
 * No loading spinner for sidebar links?
 * Can't go forward after you've gone back
+* undefined method nickname error (go to http://steam.dev/a/jschuur/l4d and select recurve7) Problem with square brackets?
 
 Next
 ----
+* noscript tags for when JavaScript is disabled.
 * Helper for 'use id or custom_url; Apply to Settings page link.
+* deal with more than 100 friends (multiple API calls)
 * Split achievement loading into separate load and render functions to DRY form submission and permalink loading
 * Put Steam profile pic in sidebar (still, now that it's next to dropdown?)
 * Add Twitter account via settings

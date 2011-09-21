@@ -1,4 +1,5 @@
 class Friends
+  attr_reader :error
   include SteamUtil
 
   def initialize(user)
@@ -14,13 +15,18 @@ class Friends
   
   def load_friends(id)
     if friends = id.friends
-      WebApi.api_key = STEAM_WEB_API_KEY
-      friends_json = WebApi.json 'ISteamUser', 'GetPlayerSummaries', 2, { :steamids => friends.map(&:steam_id64).join(',') }
-      @friends = MultiJson.decode(friends_json)['response']['players']
+      begin
+        WebApi.api_key = STEAM_WEB_API_KEY
+        friends_json = WebApi.json 'ISteamUser', 'GetPlayerSummaries', 2, { :steamids => friends.map(&:steam_id64).join(',') }
+      rescue Exception => e
+        @error = e.message
+      else
+        @friends = MultiJson.decode(friends_json)['response']['players']
     
-      @friends.each_with_index do |friend, i|
-        if friend['profileurl'] && friend['profileurl'].index('/id/')
-          @friends[i]['custom_url'] = friend['profileurl'].split('/').last
+        @friends.each_with_index do |friend, i|
+          if friend['profileurl'] && friend['profileurl'].index('/id/')
+            @friends[i]['custom_url'] = friend['profileurl'].split('/').last
+          end
         end
       end
     end

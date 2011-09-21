@@ -1,4 +1,11 @@
-$("#friends").html('<%= escape_javascript(raw render(:partial => 'sidebar_friends', :locals => { :friends => @friends, :game => 'tf2' })) %>');
-<% if @friends.length > 0 %>
-$("#sidebar h3:first").html('Friends (<%= @friends.length %>)');
+<% if @friends.error %>
+  $("#friends").html('Steam Web API error: <%= @friends.error %>')
+<% else %>
+  <% count = @friends.all.length %>
+  <% if count > 0 %>
+    $("#sidebar h3:first").html('Friends (<%= count %>)')
+    $("#friends").html('<%= escape_javascript(raw render(:partial => 'sidebar_friends', :locals => { :friends => @friends.all, :game => params[:game] })) %>')
+  <% else %>
+    $("#friends").html('<i>This profile has no friends (Wah, wah...)</i>')
+  <% end %>
 <% end %>
