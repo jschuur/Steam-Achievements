@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= content_for?(:title) ? yield(:title) : "Steam achievements lookup" %></title>
+    <title><%= APP_NAME %> <%= " - #{yield :title}" if content_for?(:title) %></title>
     <%= stylesheet_link_tag    "bootstrap-min", "application" %>
     <%= javascript_include_tag "application", params[:controller] %>
 
