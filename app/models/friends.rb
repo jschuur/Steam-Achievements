@@ -1,11 +1,8 @@
 class Friends
+  include SteamUtil
+
   def initialize(user)
-    if user.to_i.to_s == user
-      id = SteamId.new(user.to_i)
-    else
-      id = SteamId.new(user)
-    end
-    
+    id = get_steam_id(user)
     load_friends(id)
   end
 

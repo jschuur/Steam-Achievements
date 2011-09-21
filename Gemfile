@@ -8,7 +8,7 @@ gem 'rails', '3.1.0'
 gem 'mysql2'
 gem 'steam-condenser'
 gem 'sparklines'
-gem 'rmagick'
+gem 'rmagick', :require => false
 gem 'omniauth'
 gem 'redis'
 gem 'coffeebeans'

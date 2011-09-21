@@ -1,5 +1,6 @@
 class Achievements
   attr_reader :error, :id
+  include SteamUtil
 
   def initialize(user, game)
     if @achievements = load_game_achievements(user, game)
@@ -9,11 +10,7 @@ class Achievements
       achievements_per_day = @unlocked.map(&:timestamp).compact.reduce(Hash.new(0)) { |hash, timestamp| hash[timestamp.strftime("%D")] += 1; hash }
       @sparkline_history = (Date.today-28 .. Date.today).map { |d| achievements_per_day[d.strftime("%D")] }
 
-      if user.to_i.to_s == user
-        @id = SteamId.new(user.to_i)
-      else
-        @id = SteamId.new(user)
-      end
+      @id = get_steam_id(user)
     end
   end
 
@@ -36,11 +33,7 @@ class Achievements
       Marshal.load(cached_achievements)
     else
       begin
-        if user.to_i.to_s == user
-          id = SteamId.new(user.to_i)
-        else
-          id = SteamId.new(user)
-        end
+        id = get_steam_id(user)
 
         # Save any profile we did a lookup on for later
         User.create_with_id(id)
