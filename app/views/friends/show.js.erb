@@ -1,5 +1,5 @@
 <% if @friends.error %>
-  $("#friends").html('Steam Web API error: <%= @friends.error %>')
+  $("#friends").html('<i><%= @friends.error %></i>')
 <% else %>
   <% count = @friends.all.length %>
   <% if count > 0 %>

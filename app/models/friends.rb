@@ -4,7 +4,12 @@ class Friends
 
   def initialize(user)
     id = get_steam_id(user)
-    load_friends(id)
+
+    if id.privacy_state == 'public'
+      load_friends(id)
+    else
+      @error = 'No public friend list available'
+    end
   end
 
   def all
@@ -12,17 +17,23 @@ class Friends
   end
 
   private
-  
+
   def load_friends(id)
-    if friends = id.friends
+    friends = id.friends.map(&:steam_id64)
+    unless friends.empty?
       begin
         WebApi.api_key = STEAM_WEB_API_KEY
-        friends_json = WebApi.json 'ISteamUser', 'GetPlayerSummaries', 2, { :steamids => friends.map(&:steam_id64).join(',') }
+
+        # Query for friends 100 at a time from the Steam API
+        @friends = []
+        until friends.empty? do
+          batch_json = WebApi.json 'ISteamUser', 'GetPlayerSummaries', 2, { :steamids => friends.shift(100).join(',') }
+          @friends += MultiJson.decode(batch_json)['response']['players']
+        end
+
       rescue Exception => e
         @error = e.message
       else
-        @friends = MultiJson.decode(friends_json)['response']['players']
-    
         @friends.each_with_index do |friend, i|
           if friend['profileurl'] && friend['profileurl'].index('/id/')
             @friends[i]['custom_url'] = friend['profileurl'].split('/').last
