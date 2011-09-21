@@ -3,6 +3,7 @@ class AchievementsController < ApplicationController
   respond_to :html, :js
 
   def index
+    render 'show'
   end
 
   def show

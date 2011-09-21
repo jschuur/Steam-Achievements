@@ -1,8 +1,10 @@
+<% title 'Achievement Lookup' unless params[:user] %>
+
 <%= render 'form' %>
 
 <% if params[:user] && params[:game] %>
   <%= coffee_script_tag do %>
     $ ->
-      load_achievements '<%= achievements_path %>'
+      load_achievements '<%= params[:user] %>', '<%= params[:game] %>'
   <% end %>
 <% end %>
