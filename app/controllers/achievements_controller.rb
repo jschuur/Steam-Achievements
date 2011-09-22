@@ -11,6 +11,12 @@ class AchievementsController < ApplicationController
       format.js do 
         profile = SteamProfile.new(params[:user], :achievements => params[:game])
         @achievements = profile.achievements
+
+        if current_user && (current_user.steam_id64.to_i != profile.id.steam_id64)
+          @current_user_achievements = SteamProfile.new(current_user.steam_id64, :achievements => params[:game]).achievements.unlocked
+          @compare_achievements = true
+        end
+
         @title = "#{APP_CONFIG['games'].detect { |g| params[:game] == g['shortname'] }['fullname']} achievements for #{profile.id.nickname}"
       end
       format.html { render 'show' }

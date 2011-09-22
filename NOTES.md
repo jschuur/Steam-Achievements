@@ -2,6 +2,10 @@ Currently
 ---------
 * Even on errors, populate form and results
 * Switch back to pageheader instead of title, so browser history has titles when AJAX loading page headers
+* Better error handling with new SteamProfile caching
+* Better way to detect shared achievements (all ahead of time)
+* List shared achievements tally in header
+* Links (via CSS selectors) to show shared or non shared achievements only
 
 Bugs
 ----

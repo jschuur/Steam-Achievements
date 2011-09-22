@@ -7,6 +7,9 @@
   <div id="achievements">
     <% @achievements.unlocked.each do |achievement| %>
       <div class="achievement <%= cycle('achievement1', 'achievement2')%>">
+        <% if @compare_achievements && @current_user_achievements.detect() {|a| a.api_name == achievement.api_name } %>
+          <%= image_tag("star.png", :class => 'shared', :title => 'Shared achievement') %>
+        <% end %>
         <%= content_tag(:div, achievement.name, :class => 'name') %>
         <%= content_tag(:div, achievement.description, :class => 'description') %>
         <%= content_tag(:div, achievement.timestamp.strftime("%D"), :class => 'time') if achievement.timestamp %>

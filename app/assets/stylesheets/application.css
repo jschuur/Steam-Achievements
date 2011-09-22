@@ -125,6 +125,10 @@ img.sparkline {
   border-top: 1px solid gray;
 }
 
+.achievement img.shared {
+  float: right;
+}
+
 .achievement1 {
   background: #ccc;
 }
