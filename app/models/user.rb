@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  scope :authenticated, where(:login_account => true)
+  scope :recent, lambda {|n| order("created_at DESC").limit(n) }
+
+  def is_admin
+    twitter_handle && twitter_handle == 'joostschuur'
+  end
+
   def self.create_with_id(id)
     find_or_create_by_steam_id64(id.steam_id64) do |user|
       user.steam_id64 = id.steam_id64

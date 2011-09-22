@@ -5,7 +5,7 @@
   <% unless session[:hint] == 'hide' %>
     <div id="hint" class="alert-message warning" data-alert="alert">
       <a class="close" href="#">&times;</a>
-      <p>Visit your <a target="_new" href="http://steamcommunity.com">Steam Community</a> profile and use the 'id' or 'profile' value from the URL (e.g. '<%= link_to 'jschuur', achievements_path(:user => 'jschuur', :game => 'tf2') %>' or '<%= link_to '76561197992422064', achievements_path(:user => '76561197992422064', :game => 'tf2') %>').</p>
+      <p>Use the 'id' or 'profile' value from your Steam Community profile (e.g. '<%= link_to 'jschuur', achievements_path(:user => 'jschuur', :game => 'tf2') %>' or '<%= link_to '76561197992422064', achievements_path(:user => '76561197992422064', :game => 'tf2') %>') or <a href="/auth/steam">sign in via Steam</a> to authenticate your account.</p>
     </div>
   <% end %>
 <% end %>

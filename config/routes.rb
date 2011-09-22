@@ -9,6 +9,9 @@ SteamRails::Application.routes.draw do
   match "/users/disconnect_twitter" => "users#disconnect_twitter", :as => :disconnect_twitter
   match "/about" => "application#about", :as => :about
 
+  match 'admin' => "admin#index", :as => :admin
+  match 'admin/action/:cmd' => "admin#action", :as => :admin_action
+
   # Catch all for user/game achievement URL
   match '/achievements/search' => 'achievements#search', :as => :search
   match '/a/:user/:game' => 'achievements#show', :as => :achievements

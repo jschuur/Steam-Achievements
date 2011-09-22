@@ -1,0 +1,17 @@
+<% title 'Site admin' %>
+
+<h3>Stats</h3>
+Total users: <%= @users.all.count %><br>
+Authenticated users: <%= @users.authenticated.count -%> (Recently: <%= raw @users.authenticated.recent(5).map {|u| link_to u.steam_nickname, achievements_path(:user => u.steam_custom_url || u.steam_id64, :game => 'tf2') }.join(',') %>)
+
+<h3>Redis Caching</h3>
+<div id="redis-actions"><p><%= link_to "Flush keys", admin_action_path(:cmd => :flushredis), { :confirm => "Flush all redis keys?", :remote => true } %> <span id="redis-status"></span></p></div>
+<p>(<a id="redismore">toggle full stats</a>)</p>
+<div id="redisexcerpt">
+  Uptime: <%= time_ago_in_words(Time.now - @redis['uptime_in_seconds'].to_i, true) %><br>
+  db0: <%= @redis['db0'] %><br>
+  Memory used: <%= @redis['used_memory_human'] %><br>
+  Keyspace hits/misses: <%= "#{@redis['keyspace_hits']} / #{@redis['keyspace_misses']}"%> (<%= ((@redis['keyspace_misses'].to_f / @redis['keyspace_hits'].to_f) * 100).round(1) %>% cached)<br>
+  Expired/evicted keys: <%= "#{@redis['expired_keys']} / #{@redis['evicted_keys']}"%>
+</div>
+<div id="redisinfo" style="display:none"><%= raw @redis.map {|i,j|  "#{i}: #{j}" }.join('<br>') %></div>
