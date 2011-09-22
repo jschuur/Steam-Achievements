@@ -1,6 +1,7 @@
 $("#spinner").hide();
 <% if @achievements.error %>
   $("#errors").html('<%= @achievements.error %>');
+  $("#errors").show();
 <% else %>
   $("#results").html('<%= escape_javascript(raw render(:partial => 'results')) %>');
   $(".page-header h1").html('<%= @title %>');

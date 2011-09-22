@@ -1,6 +1,7 @@
 development: &defaults
   achievement_cache_time: 3600    # Seconds to cache achievement data on a per user/game basis
-  user_cache_time: 604800
+  user_cache_time: 86400
+  friends_cache_time: 86400
   games:
     - shortname: tf2 
       fullname: Team Fortress 2

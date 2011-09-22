@@ -2,7 +2,7 @@ class FriendsController < ApplicationController
   respond_to :js
 
   def show
-    @friends = Friends.new(params[:user])
+    @friends = SteamProfile.new(params[:user], :friends => true).friends
 
     respond_with do |format|
       format.js { }
