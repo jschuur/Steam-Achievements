@@ -1,15 +1,17 @@
 <% if @achievements.unlocked %>
-  <div id="tally"><%= @achievements.unlocked.length %> of <%= @achievements.all.length %> unlocked 
+  <div id="tally"><%= @achievements.unlocked.length %> of <%= @achievements.all.length %> unlocked <span id="tallyfilter"></span>
     <% if @achievements.sparkline_history.sum.nonzero? %>
       (<%= sparkline_tag @achievements.sparkline_history, :type => 'bar', :title => '4 week history', :step => 4, :height => 12, :background_color => '#fff', :below_color => 'black' %>)
     <% end %>
   </div>
+  <% if @compare_achievements %>
+    <div id="filters"><a data-range="all" href="#">All</a> | <a data-range="shared" href="#">Shared</a> | <a data-range="missing" href="#">Missing</a></div>
+  <% end %>
   <div id="achievements">
     <% @achievements.unlocked.each do |achievement| %>
-      <div class="achievement <%= cycle('achievement1', 'achievement2')%>">
-        <% if @compare_achievements && @current_user_achievements.detect() {|a| a.api_name == achievement.api_name } %>
-          <%= image_tag("star.png", :class => 'shared', :title => 'Shared achievement') %>
-        <% end %>
+      <% shared = (@compare_achievements && @current_user_achievements.detect() {|a| a.api_name == achievement.api_name }) %>
+      <div class="achievement <%= cycle('achievement1', 'achievement2')%> <%= shared ? 'shared' : 'missing' %>">
+        <%= image_tag("star.png", :class => 'shared', :title => 'Shared achievement') if shared %>
         <%= content_tag(:div, achievement.name, :class => 'name') %>
         <%= content_tag(:div, achievement.description, :class => 'description') %>
         <%= content_tag(:div, achievement.timestamp.strftime("%D"), :class => 'time') if achievement.timestamp %>

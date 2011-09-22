@@ -42,6 +42,27 @@ $ ->
     e.preventDefault()
   )
 
+  $("#filters a").live('click', (e) ->
+    range = $(this).attr("data-range")
+    if range == 'all'
+      $("#achievements .achievement").show()
+      $("#tallyfilter").empty()
+    else if range == 'shared'
+      $("#achievements .achievement.missing").hide()
+      $("#achievements .achievement.shared").show()
+      $("#tallyfilter").html('(showing ' + $("#achievements .achievement:visible:").size() + ')')
+    else
+      $("#achievements .achievement.shared").hide()
+      $("#achievements .achievement.missing").show()
+      $("#tallyfilter").html('(showing ' + $("#achievements .achievement:visible:").size() + ')')
+
+    $("#achievements .achievement:visible:even").removeClass('achievement2').addClass('achievement1')
+    $("#achievements .achievement:visible:odd").removeClass('achievement1').addClass('achievement2')
+    $("#achievements .achievement:visible").last().css('border-bottom', '1px solid gray')
+
+    e.preventDefault()
+  )
+
   $(window).bind "popstate", ->
     initialPop = not popped and location.href == initialURL
     popped = true
